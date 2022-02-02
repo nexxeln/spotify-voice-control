@@ -61,4 +61,14 @@ def previous_track(spotify: Spotify):
     '''
     spotify.previous_track()
 
-    
+def pause_track(spotify: Spotify):
+    '''
+    pauses the current track
+    '''
+    spotify.pause_playback()
+
+def resume_track(spotify: Spotify):
+    '''
+    resumes the current track
+    '''
+    spotify.start_playback()    
