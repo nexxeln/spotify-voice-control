@@ -10,6 +10,7 @@ from spotipy.oauth2 import SpotifyOAuth
 # load environment variables
 dotenv.load_dotenv()
 
+
 # create spotify object with all scopes
 scope = "ugc-image-upload, user-read-playback-state, user-modify-playback-state, user-follow-modify, user-read-private, user-follow-read, user-library-modify, user-library-read, streaming, user-read-playback-position, app-remote-control, user-read-email, user-read-currently-playing, user-read-recently-played, playlist-modify-private, playlist-read-collaborative, playlist-read-private, user-top-read, playlist-modify-public"
 
