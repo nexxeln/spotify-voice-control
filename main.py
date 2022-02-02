@@ -15,18 +15,18 @@ scope = "ugc-image-upload, user-read-playback-state, user-modify-playback-state,
 
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope, client_id=os.getenv("SPOTIFY_CLIENT_ID"), client_secret=os.getenv("SPOTIFY_CLIENT_SECRET"), redirect_uri="http://localhost:8888/callback"), requests_timeout=300)
 
-# set-up speech recognizer
-r = sr.Recognizer()
-with sr.Microphone() as source:
-    print("Ready!")
-    audio = r.listen(source)
-
 
 while True:
     '''
     infinite loop to listen for commands
     commands are 'play', 'album', 'artist'
     '''
+
+    # set-up speech recognizer
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Ready!")
+        audio = r.listen(source)
 
     command = None
     # recognize speech and using try-except to catch errors
