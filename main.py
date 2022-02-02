@@ -61,20 +61,25 @@ while True:
         if action == "play":
             uri = get_track_uri(spotify=sp, name=name)
             play_track(spotify=sp, uri=uri)
+            print(f"Playing {name}...")
 
         elif action == "album":
             uri = get_album_uri(spotify=sp, name=name)
             play_album(spotify=sp, uri=uri)
+            print(f"Playing album {name}...")
         
         elif action == "artist":
             uri = get_artist_uri(spotify=sp, name=name)
             play_artist(spotify=sp, uri=uri)
+            print(f"Playing artist {name}...")
         
         elif action == "skip":
             skip_track(spotify=sp)
+            print("Skipped current track...")
         
         elif action == "previous":
             previous_track(spotify=sp)
+            print("Playing previous track...")
 
     except InvalidSearchError:
         print(f"Could not find {name}. Try again.")
