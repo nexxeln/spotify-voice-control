@@ -11,7 +11,7 @@
 
   <p align="center">
     A voice control utility for Spotify
-    
+    .
     <a href="https://github.com/nexxeln/spotify-voice-control/issues">Report Bug</a>
     ·
     <a href="https://github.com/nexxeln/spotify-voice-control/issues">Request Feature</a>
