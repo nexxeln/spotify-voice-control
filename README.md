@@ -30,15 +30,6 @@
 
 
 
-<!-- GETTING STARTED -->
-## Getting Started
-
-Nexxel, write here
-
-### Prerequisites
-
-Fill this too
-
 ### Installation
 
 1. Get a free API Key at [https://spotify.com](https://spotify.com)
