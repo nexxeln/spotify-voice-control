@@ -51,3 +51,5 @@ def play_artist(spotify: Spotify, uri: str):
     '''
     spotify.start_playback(context_uri=uri)
     print("Playing on Spotify...")
+
+    
