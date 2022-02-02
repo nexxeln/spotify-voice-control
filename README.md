@@ -32,19 +32,14 @@
 
 ### Installation
 
-1. Get a free API Key at [https://spotify.com](https://spotify.com)
-2. complete this
+1. Make a free application at [https://developer.spotify.com](https://developer.spotify.com)
+2. Add a Redirect URI to the application and set is as `http://localhost:8888/callback`
+3. Clone this repository `git clone https://github.com/nexxeln/spotify-voice-control`
+4. Set two environment variables, `SPOTIFY_CLIENT_ID` and `SPOTIFY_CLIENT_SECRET` 
+5. Authenticate by running `main.py`
+6. Run `main.py` to use.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
