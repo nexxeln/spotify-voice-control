@@ -1,11 +1,11 @@
 # imports
-from distutils import command
 import spotipy
 import os
 import dotenv
 from methods import *
 import speech_recognition as sr
 from spotipy.oauth2 import SpotifyOAuth
+
 
 # load environment variables
 dotenv.load_dotenv()
