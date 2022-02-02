@@ -17,6 +17,18 @@ scope = "ugc-image-upload, user-read-playback-state, user-modify-playback-state,
 
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope, client_id=os.getenv("SPOTIFY_CLIENT_ID"), client_secret=os.getenv("SPOTIFY_CLIENT_SECRET"), redirect_uri="http://localhost:8888/callback"), requests_timeout=300)
 
+print('''[spring_green3]
+:'######::'########:::'#######::'########:'####:'########:'##:::'##:
+'##... ##: ##.... ##:'##.... ##:... ##..::. ##:: ##.....::. ##:'##::
+ ##:::..:: ##:::: ##: ##:::: ##:::: ##::::: ##:: ##::::::::. ####:::
+. ######:: ########:: ##:::: ##:::: ##::::: ##:: ######:::::. ##::::
+:..... ##: ##.....::: ##:::: ##:::: ##::::: ##:: ##...::::::: ##::::
+'##::: ##: ##:::::::: ##:::: ##:::: ##::::: ##:: ##:::::::::: ##::::
+. ######:: ##::::::::. #######::::: ##::::'####: ##:::::::::: ##::::
+:......:::..::::::::::.......::::::..:::::....::..:::::::::::..:::::
+[/spring_green3]
+[hot_pink2]Voice Control for Spotify[/hot_pink2]
+''')
 
 while True:
     '''
