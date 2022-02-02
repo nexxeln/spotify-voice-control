@@ -43,7 +43,7 @@ while True:
         print("[italic red]Could not understand.[/italic red]")
         continue
     
-    print(command)
+    print(f"[medium_purple3]{command}[/medium_purple3]")
     # splitting the command into separate words
     words = command.split()
     
