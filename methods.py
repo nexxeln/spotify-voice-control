@@ -52,4 +52,18 @@ def play_artist(spotify: Spotify, uri: str):
     spotify.start_playback(context_uri=uri)
     print("Playing on Spotify...")
 
+def skip_track(spotify: Spotify):
+    '''
+    skips the current track
+    '''
+    spotify.next_track()
+    print("Skipped current track...")
+
+def previous_track(spotify: Spotify):
+    '''
+    plays the previous track
+    '''
+    spotify.previous_track()
+    print("Playing previous track...")
+
     

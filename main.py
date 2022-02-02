@@ -20,7 +20,12 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope, client_id=os.getenv(
 while True:
     '''
     infinite loop to listen for commands
-    commands are 'play', 'album', 'artist'
+    commands:
+    - 'play {track name}'
+    - 'album {album name}'
+    - 'artist {artist name}'
+    - 'skip track'
+    - 'previous track'
     '''
 
     # set-up speech recognizer
@@ -64,6 +69,12 @@ while True:
         elif action == "artist":
             uri = get_artist_uri(spotify=sp, name=name)
             play_artist(spotify=sp, uri=uri)
+        
+        elif action == "skip":
+            skip_track(spotify=sp)
+        
+        elif action == "previous":
+            previous_track(spotify=sp)
 
     except InvalidSearchError:
         print(f"Could not find {name}. Try again.")
