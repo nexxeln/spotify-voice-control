@@ -23,8 +23,8 @@
 ### Built With
 
 * [Python](https://python.org/)
-* [spotipy - Spotify api wrapper](https://spotify.com)
-* [Speech recognition](https://pypi.org/project/SpeechRecognition/)
+* [spotipy - Spotify api wrapper](https://github.com/plamere/spotipy)
+* [speech_recognition](https://github.com/Uberi/speech_recognition)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
