@@ -72,3 +72,12 @@ def resume_track(spotify: Spotify):
     resumes the current track
     '''
     spotify.start_playback()    
+
+def change_volume(spotify: Spotify, volume: int):
+    '''
+    changes the volume to the given value between 1 and 100
+    '''
+    if volume < 0 or volume > 100:
+        raise ValueError("Volume must be between 0 and 100")
+    else:    
+        spotify.volume(volume)
