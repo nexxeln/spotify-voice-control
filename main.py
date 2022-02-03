@@ -3,6 +3,7 @@ import spotipy
 import os
 import dotenv
 import speech_recognition as sr
+import json
 from spotipy.oauth2 import SpotifyOAuth
 from rich import print
 from methods import *
@@ -11,6 +12,11 @@ from methods import *
 # load environment variables
 dotenv.load_dotenv()
 
+# loading settings
+f = open("settings.json")
+settings = json.load(f)
+presets = settings["presets"]
+f.close()
 
 # create spotify object with all scopes
 scope = "ugc-image-upload, user-read-playback-state, user-modify-playback-state, user-follow-modify, user-read-private, user-follow-read, user-library-modify, user-library-read, streaming, user-read-playback-position, app-remote-control, user-read-email, user-read-currently-playing, user-read-recently-played, playlist-modify-private, playlist-read-collaborative, playlist-read-private, user-top-read, playlist-modify-public"
@@ -66,13 +72,26 @@ while True:
         continue
 
     elif len(words) == 1:
+        for preset in presets:
+            if words[0] == preset["preset"]:
+                if preset["type"] == "track":
+                    uri = get_track_uri(spotify=sp, name=preset["name"])
+                    play_track(spotify=sp, uri=uri)
+                    continue
+
+                elif preset["type"] == "album":
+                    uri = get_album_uri(spotify=sp, name=preset["name"])
+                    play_album(spotify=sp, uri=uri)
+                    continue
+                
+                elif preset["type"] == "artist":
+                    uri = get_artist_uri(spotify=sp, name=preset["name"])
+                    play_artist(spotify=sp, uri=uri)
+                    continue
+
         if words[0] == "skip":
             skip_track(spotify=sp)
             print("[bold deep_sky_blue2]Skipped![/bold deep_sky_blue2]")
-
-        elif words[0] == "previous":
-            previous_track(spotify=sp)
-            print("[bold deep_sky_blue2]Playing previous track![/bold deep_sky_blue2]")
         
         elif words[0] == "pause":
             pause_track(spotify=sp)
@@ -83,7 +102,7 @@ while True:
             print("[bold deep_sky_blue2]Resumed![/bold deep_sky_blue2]")
 
         elif words[0] == "quit":
-            print("[bold deep_sky_blue2]Quitting![/bold deep_sky_blue2]")
+            pause_track(spotify=sp)
             break
 
         else:
@@ -113,14 +132,6 @@ while True:
                 play_artist(spotify=sp, uri=uri)
                 print(f"[bold deep_sky_blue2]Playing artist:[/bold deep_sky_blue2] [italic spring_green3]{name}...[/italic spring_green3]")
             
-            elif action == "skip":
-                skip_track(spotify=sp)
-                print("[italic orange1]Skipped current track...[/italic orange1]")
-            
-            elif action == "previous":
-                previous_track(spotify=sp)
-                print("[italic orange1]Playing previous track...[/italic orange1]")
-
         except InvalidSearchError:
             print(f"[italic red]Could not find {name}. Try again.[/italic red]")
 
