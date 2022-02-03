@@ -37,7 +37,25 @@
 4. Install all dependencies (`pip install -r requirements.txt`)
 5. Set two environment variables, `SPOTIFY_CLIENT_ID` and `SPOTIFY_CLIENT_SECRET` 
 6. Authenticate by running `main.py`
-7. Run `main.py` to use.
+7. Run `main.py` to use
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Usage
+
+1. Have some music playing thorough Spotify in the device you want to listen in.
+2. Run `main.py`
+3. Say `play {track name}` to play a track
+4. Say `album {album name}` to play an album
+5. Say `artist {artist name}` to play songs of an artist
+6. Say `pause` to pause the music
+7. Say `resume` to resume the music
+8. Say `skip` to skip to the next track
+9. Sometimes the speech_recognition library doesn't understand some names. For this we have a presets feature.
+      - Go to `settings.json` and add your own presets.
+      - See `presets_example.json` for an example.
+      - Make your own in `settings.json`
+      - Now you can say `{preset}` to play a preset.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
