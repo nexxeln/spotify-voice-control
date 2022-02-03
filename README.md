@@ -27,6 +27,10 @@
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+### Prerequisites
+- [Python 3.6+](https://www.python.org/downloads/)
+- [Spotify Premium](https://www.spotify.com/premium/)
+
 
 
 ### Installation
