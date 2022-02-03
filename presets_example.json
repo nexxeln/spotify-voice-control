@@ -1,0 +1,19 @@
+{
+    "presets": [
+        {
+            "name": "Powfu", 
+            "preset": "sad",
+            "type": "artist"
+        },
+        {
+            "name": "tell me you feelings and i won't tell you mine",
+            "preset": "favourite",
+            "type": "album"
+        },
+        {
+            "name": "sauceintherough",
+            "preset": "sauce",
+            "type": "track"
+        }
+    ]
+}
