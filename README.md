@@ -51,7 +51,7 @@
 6. Say `pause` to pause the music
 7. Say `resume` to resume the music
 8. Say `skip` to skip to the next track
-9. Sometimes the speech_recognition library doesn't understand some names. For this we have a presets feature
+9. Sometimes the speech_recognition library doesn't understand some names. For this there is a presets feature
       - Go to `settings.json` and add your own presets
       - See `presets_example.json` for an example
       - Make your own in `settings.json`
