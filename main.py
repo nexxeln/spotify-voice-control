@@ -104,6 +104,10 @@ while True:
         elif words[0] == "quit":
             pause_track(spotify=sp)
             break
+        
+        elif words[0] == "repeat":
+            repeat_track(spotify=sp)
+            print("[bold deep_sky_blue2]Track on repeat![/bold deep_sky_blue2]")
 
         else:
             print("[italic red]Could not understand.[/italic red]")
