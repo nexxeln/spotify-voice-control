@@ -77,16 +77,19 @@ while True:
                 if preset["type"] == "track":
                     uri = get_track_uri(spotify=sp, name=preset["name"])
                     play_track(spotify=sp, uri=uri)
+                    print(f"[bold deep_sky_blue2]Playing track:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
                     continue
 
                 elif preset["type"] == "album":
                     uri = get_album_uri(spotify=sp, name=preset["name"])
                     play_album(spotify=sp, uri=uri)
+                    print(f"[bold deep_sky_blue2]Playing album:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
                     continue
                 
                 elif preset["type"] == "artist":
                     uri = get_artist_uri(spotify=sp, name=preset["name"])
                     play_artist(spotify=sp, uri=uri)
+                    print(f"[bold deep_sky_blue2]Playing artist:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
                     continue
 
         if words[0] == "skip":
@@ -124,17 +127,17 @@ while True:
             if action == "play":
                 uri = get_track_uri(spotify=sp, name=name)
                 play_track(spotify=sp, uri=uri)
-                print(f"[bold deep_sky_blue2]Playing track:[/bold deep_sky_blue2] [italic spring_green3]{name}...[/italic spring_green3]")
+                print(f"[bold deep_sky_blue2]Playing track:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
 
             elif action == "album":
                 uri = get_album_uri(spotify=sp, name=name)
                 play_album(spotify=sp, uri=uri)
-                print(f"[bold deep_sky_blue2]Playing album:[/bold deep_sky_blue2] [italic spring_green3]{name}...[/italic spring_green3]")
+                print(f"[bold deep_sky_blue2]Playing album:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
             
             elif action == "artist":
                 uri = get_artist_uri(spotify=sp, name=name)
                 play_artist(spotify=sp, uri=uri)
-                print(f"[bold deep_sky_blue2]Playing artist:[/bold deep_sky_blue2] [italic spring_green3]{name}...[/italic spring_green3]")
+                print(f"[bold deep_sky_blue2]Playing artist:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
             
             elif action == "volume":
                 volume = int(name)
