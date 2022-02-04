@@ -22,6 +22,8 @@
 
 ![play](https://github.com/nexxeln/spotify-voice-control/blob/main/screenshots/play_dnd.gif)
 
+*Demo video will be added soon*
+
 ### Built With
 
 * [Python](https://python.org/)
