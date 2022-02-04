@@ -81,3 +81,9 @@ def change_volume(spotify: Spotify, volume: int):
         raise ValueError("Volume must be between 0 and 100")
     else:    
         spotify.volume(volume)
+
+def repeat_track(spotify: Spotify):
+    '''
+    repeats the current track
+    '''
+    spotify.repeat("track")
