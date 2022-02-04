@@ -20,6 +20,8 @@
 
 ![startup](https://github.com/nexxeln/spotify-voice-control/blob/main/screenshots/startup.gif)
 
+![play](https://github.com/nexxeln/spotify-voice-control/blob/main/screenshots/play_dnd.gif)
+
 ### Built With
 
 * [Python](https://python.org/)
