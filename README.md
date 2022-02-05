@@ -18,6 +18,8 @@
   </p>
 </div>
 
+<p align="right">Logo Credit: soph</p>
+
 ![play](https://github.com/nexxeln/spotify-voice-control/blob/main/screenshots/play_dnd.gif)
 
 *Demo video will be added soon*
