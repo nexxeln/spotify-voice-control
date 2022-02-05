@@ -143,6 +143,10 @@ while True:
                 volume = int(name)
                 change_volume(spotify=sp, volume=volume)
                 print(f"[bold deep_sky_blue2]Volume set to:[/bold deep_sky_blue2] [italic spring_green3]{volume}%[/italic spring_green3]")
+            
+            elif action == "shuffle":
+                state = name
+                shuffle(spotify=sp, state=state)
 
         except InvalidSearchError:
             print(f"[italic red]Could not find {name}. Try again.[/italic red]")
