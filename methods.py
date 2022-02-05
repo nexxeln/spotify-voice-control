@@ -1,4 +1,3 @@
-import imp
 from rich import print
 from spotipy import Spotify
 
