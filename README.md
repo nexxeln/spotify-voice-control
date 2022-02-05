@@ -18,7 +18,7 @@
   </p>
 </div>
 
-<p align="right" ><sup><sub>Logo credit: soph</sub></sup></p>
+<p align="right" ><sup><sub><b>Logo credit: soph<b></sub></sup></p>
 
 ![play](https://github.com/nexxeln/spotify-voice-control/blob/main/screenshots/play_dnd.gif)
 
