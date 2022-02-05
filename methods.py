@@ -1,4 +1,7 @@
+import imp
+from rich import print
 from spotipy import Spotify
+
 
 # catching errors
 class InvalidSearchError(Exception):
@@ -87,3 +90,18 @@ def repeat_track(spotify: Spotify):
     repeats the current track
     '''
     spotify.repeat("track")
+
+def shuffle(spotify: Spotify, state: str):
+    '''
+    shuffles the playlist
+    '''
+    if state == "on":
+        spotify.shuffle(True)
+        print("[bold deep_sky_blue2]Shuffle is[/bold deep_sky_blue2] [italic spring_green3]ON[/italic spring_green3]")
+    
+    elif state == "off":
+        spotify.shuffle(False)
+        print("[bold deep_sky_blue2]Shuffle is[/bold deep_sky_blue2] [italic spring_green3]OFF[/italic spring_green3]")
+    
+    else:
+        raise ValueError("State must be either on or off")
