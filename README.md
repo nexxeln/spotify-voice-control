@@ -60,13 +60,14 @@
 8. Say `skip` to skip to the next track
 9. Say `volume {number}` to set the volume to a number between 0 and 100
 10. Say `repeat` to put the current track in on repeat
-11. Sometimes the speech_recognition library doesn't understand some names. For this there is a presets feature
+11. Say `shuffle {ON/OFF}` to turn shuffle on or off
+12. Sometimes the speech_recognition library doesn't understand some names. For this there is a presets feature
       - Go to `settings.json` and add your own presets
       - See `presets_example.json` for an example
       - Make your own in `settings.json`
       - Presets can only be one word so make it meaningful
       - Now you can say `{preset}` to play a preset
-12. Say `quit` to quit the program
+13. Say `quit` to quit the program
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
