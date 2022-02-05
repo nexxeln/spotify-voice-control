@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/nexxel/spotify-voice-control">
-    <img src="https://i.dhravya.me/r/spotify-voice-control1.png" alt="Logo" width="80" height="80">
+    <img src="https://i.imgur.com/MFthi3e.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Spotify Voice Control</h3>
