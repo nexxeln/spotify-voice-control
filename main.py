@@ -4,6 +4,7 @@ import os
 import dotenv
 import speech_recognition as sr
 import json
+import random
 from spotipy.oauth2 import SpotifyOAuth
 from rich import print
 from methods import *
@@ -135,9 +136,16 @@ while True:
                 print(f"[bold deep_sky_blue2]Playing album:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
             
             elif action == "artist":
-                uri = get_artist_uri(spotify=sp, name=name)
-                play_artist(spotify=sp, uri=uri)
-                print(f"[bold deep_sky_blue2]Playing artist:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
+                if name == "random":
+                    random_artist = random.choice(get_user_followed_artists(spotify=sp))
+                    uri = get_artist_uri(spotify=sp, name=random_artist)
+                    play_artist(spotify=sp, uri=uri)
+                    print(f"[bold deep_sky_blue2]Playing artist:[/bold deep_sky_blue2] [italic spring_green3]{random_artist}[/italic spring_green3]")
+
+                else:
+                    uri = get_artist_uri(spotify=sp, name=name)
+                    play_artist(spotify=sp, uri=uri)
+                    print(f"[bold deep_sky_blue2]Playing artist:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
             
             elif action == "volume":
                 volume = int(name)
