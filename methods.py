@@ -121,3 +121,36 @@ def get_user_followed_artists(spotify: Spotify):
         results = spotify.current_user_followed_artists(limit=20, after=after)
 
     return all_artists
+
+# def get_user_saved_tracks(spotify: Spotify):
+#     '''
+#     returns a list of the users saved tracks
+#     '''
+#     tracks = []
+#     results = spotify.current_user_saved_tracks(limit=50)
+#     for i in range(results["total"]):
+#         for j in range(len(results["items"])):
+#             tracks.append(results["items"][j]["track"]["name"])
+#         if results["next"] == None:
+#             break
+#         else:
+#             after = results["next"]
+#         results = spotify.current_user_saved_tracks(limit=50, after=after)
+    
+#     return tracks
+
+def get_user_saved_tracks(spotify: Spotify):
+    '''
+    returns a list of the users saved tracks
+    '''
+    tracks = []
+    offset = 0
+    results = spotify.current_user_saved_tracks(limit=50, offset=offset)
+    while len(results["items"]) != 0:
+        for i in range(len(results["items"])):
+            tracks.append(results["items"][i]["track"]["name"])
+        offset += 50
+        results = spotify.current_user_saved_tracks(limit=50, offset=offset)
+
+
+    return tracks
