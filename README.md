@@ -54,9 +54,9 @@
 
 1. Have some music playing thorough Spotify in the device you want to listen in.
 2. Run `main.py`
-3. Say `play {track name}` to play a track
-4. Say `album {album name}` to play an album
-5. Say `artist {artist name}` to play songs of an artist
+3. Say `play {track name}` to play a track (say `play random` to play a random track from your saved tracks)
+4. Say `album {album name}` to play an album 
+5. Say `artist {artist name}` to play songs of an artist (say `artist random` to play a random artist from your followed artists)
 6. Say `pause` to pause the music
 7. Say `resume` to resume the music
 8. Say `skip` to skip to the next track
