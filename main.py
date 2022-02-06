@@ -126,9 +126,17 @@ while True:
         # try except block to catch InvaliSearchError
         try:
             if action == "play":
-                uri = get_track_uri(spotify=sp, name=name)
-                play_track(spotify=sp, uri=uri)
-                print(f"[bold deep_sky_blue2]Playing track:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
+                if name == "random":
+                    tracks = get_user_saved_tracks(spotify=sp)
+                    random_track = random.choice(tracks)
+                    uri = get_track_uri(spotify=sp, name=random_track)
+                    play_track(spotify=sp, uri=uri)
+                    print(f"[bold deep_sky_blue2]Playing track:[/bold deep_sky_blue2] [italic spring_green3]{random_track}[/italic spring_green3]")
+
+                else:
+                    uri = get_track_uri(spotify=sp, name=name)
+                    play_track(spotify=sp, uri=uri)
+                    print(f"[bold deep_sky_blue2]Playing track:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
 
             elif action == "album":
                 uri = get_album_uri(spotify=sp, name=name)
