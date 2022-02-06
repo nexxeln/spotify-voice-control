@@ -104,3 +104,20 @@ def shuffle(spotify: Spotify, state: str):
     
     else:
         raise ValueError("State must be either on or off")
+    
+def get_user_followed_artists(spotify: Spotify):
+    '''
+    returns a list of the users followed artists
+    '''
+    all_artists = []
+    results = spotify.current_user_followed_artists(limit=20)
+    for i in range(results["artists"]["total"]):
+        for j in range(len(results["artists"]["items"])):
+            all_artists.append(results["artists"]["items"][j]["name"])
+        if results["artists"]["cursors"]["after"] == None:
+            break
+        else:
+            after = results["artists"]["cursors"]["after"]
+        results = spotify.current_user_followed_artists(limit=20, after=after)
+
+    return all_artists
