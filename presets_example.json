@@ -14,6 +14,11 @@
             "name": "sauceintherough",
             "preset": "sauce",
             "type": "track"
+        },
+        {
+            "name": "This is glaive",
+            "preset": "gold",
+            "type": "playlist"
         }
     ]
 }
