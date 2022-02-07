@@ -72,6 +72,8 @@
       - Now you can say `{preset}` to play a preset
 14. Say `quit` to quit the program
 
+*Note: Sometimes the speech_recognition library hangs, in that case you have to force quite the program by using `ctrl + C` or `cmd + C`. The restart the program by using `python main.py`*
+
 <p align="right">(<a href="#top">^</a>)</p>
 
 
