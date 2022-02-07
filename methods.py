@@ -51,6 +51,12 @@ def play_artist(spotify: Spotify, uri: str):
     '''
     spotify.start_playback(context_uri=uri)
 
+def play_playlist(spotify: Spotify, playlist_id: str):
+    '''
+    plays the playlist with the given id
+    '''
+    spotify.start_playback(context_uri=f"spotify:playlist:{playlist_id}")
+
 def skip_track(spotify: Spotify):
     '''
     skips the current track
@@ -122,23 +128,6 @@ def get_user_followed_artists(spotify: Spotify):
 
     return all_artists
 
-# def get_user_saved_tracks(spotify: Spotify):
-#     '''
-#     returns a list of the users saved tracks
-#     '''
-#     tracks = []
-#     results = spotify.current_user_saved_tracks(limit=50)
-#     for i in range(results["total"]):
-#         for j in range(len(results["items"])):
-#             tracks.append(results["items"][j]["track"]["name"])
-#         if results["next"] == None:
-#             break
-#         else:
-#             after = results["next"]
-#         results = spotify.current_user_saved_tracks(limit=50, after=after)
-    
-#     return tracks
-
 def get_user_saved_tracks(spotify: Spotify):
     '''
     returns a list of the users saved tracks
@@ -152,5 +141,21 @@ def get_user_saved_tracks(spotify: Spotify):
         offset += 50
         results = spotify.current_user_saved_tracks(limit=50, offset=offset)
 
-
     return tracks
+
+def get_user_playlists(spotify: Spotify):
+    '''
+    returns a list of the users playlists
+    '''
+    playlists = []
+    playlist_ids = []
+    offset = 0
+    results = spotify.current_user_playlists(limit=50, offset=offset)
+    while len(results["items"]) != 0:
+        for i in range(len(results["items"])):
+            playlists.append(results["items"][i]["name"])
+            playlist_ids.append(results["items"][i]["id"])
+        offset += 50
+        results = spotify.current_user_playlists(limit=50, offset=offset)
+
+    return playlists, playlist_ids
