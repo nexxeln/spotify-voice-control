@@ -170,16 +170,16 @@ while True:
             
             elif action == "playlist":
                 playlists, playlist_ids = get_user_playlists(spotify=sp)
-                for i in range(len(playlists)):
-                    if name.lower() in playlists:
+                if name.lower() in playlists:
+                    for i in range(len(playlists)):
                         if name.lower() == playlists[i].lower():
                             id = playlist_ids[i]
                             play_playlist(spotify=sp, playlist_id=id)
                             print(f"[bold deep_sky_blue2]Playing playlist:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
                             break
-                    else:
-                        print("[italic red]Could not find playlist.[/italic red]")
-                        continue
+                else:
+                    print("[italic red]Could not find playlist.[/italic red]")
+                    continue
 
 
             elif action == "volume":
