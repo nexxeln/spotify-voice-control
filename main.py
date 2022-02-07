@@ -76,19 +76,22 @@ while True:
         for preset in presets:
             if words[0] == preset["preset"]:
                 if preset["type"] == "track":
-                    uri = get_track_uri(spotify=sp, name=preset["name"])
+                    name = preset["name"]
+                    uri = get_track_uri(spotify=sp, name=name)
                     play_track(spotify=sp, uri=uri)
                     print(f"[bold deep_sky_blue2]Playing track:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
                     continue
 
                 elif preset["type"] == "album":
-                    uri = get_album_uri(spotify=sp, name=preset["name"])
+                    name = preset["name"]
+                    uri = get_album_uri(spotify=sp, name=name)
                     play_album(spotify=sp, uri=uri)
                     print(f"[bold deep_sky_blue2]Playing album:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
                     continue
                 
                 elif preset["type"] == "artist":
-                    uri = get_artist_uri(spotify=sp, name=preset["name"])
+                    name = preset["name"]
+                    uri = get_artist_uri(spotify=sp, name=name)
                     play_artist(spotify=sp, uri=uri)
                     print(f"[bold deep_sky_blue2]Playing artist:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
                     continue
