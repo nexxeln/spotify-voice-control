@@ -93,6 +93,16 @@ while True:
                     print(f"[bold deep_sky_blue2]Playing artist:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
                     continue
 
+                elif preset["type"] == "playlist":
+                    playlists, playlist_ids = get_user_playlists(spotify=sp)
+                    name = preset["name"]
+                    for i in range(len(playlists)):
+                        if name.lower() == playlists[i].lower():
+                            id = playlist_ids[i]
+                            play_playlist(spotify=sp, playlist_id=id)
+                            print(f"[bold deep_sky_blue2]Playing playlist:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
+                    continue
+
         if words[0] == "skip":
             skip_track(spotify=sp)
             print("[bold deep_sky_blue2]Skipped![/bold deep_sky_blue2]")
@@ -155,6 +165,19 @@ while True:
                     play_artist(spotify=sp, uri=uri)
                     print(f"[bold deep_sky_blue2]Playing artist:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
             
+            elif action == "playlist":
+                playlists, playlist_ids = get_user_playlists(spotify=sp)
+                for i in range(len(playlists)):
+                    if name.lower() == playlists[i].lower():
+                        id = playlist_ids[i]
+                        play_playlist(spotify=sp, playlist_id=id)
+                        print(f"[bold deep_sky_blue2]Playing playlist:[/bold deep_sky_blue2] [italic spring_green3]{name}[/italic spring_green3]")
+                        break
+                    else:
+                        print("[italic red]Could not find playlist.[/italic red]")
+                        continue
+
+
             elif action == "volume":
                 volume = int(name)
                 change_volume(spotify=sp, volume=volume)
