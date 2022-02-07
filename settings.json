@@ -1,39 +1,5 @@
 {
     "presets": [
-        {
-            "name": "Powfu", 
-            "preset": "king",
-            "type": "artist"
-        },
-        {
-            "name": "tell me you feelings and i won't tell you mine",
-            "preset": "favourite",
-            "type": "album"
-        },
-        {
-            "name": "sauceintherough",
-            "preset": "sauce",
-            "type": "track"
-        },
-        {
-            "name": "Lauv", 
-            "preset": "l",
-            "type": "artist"
-        },
-        {
-            "name": "sad4whattt",
-            "preset": "sad",
-            "type": "track"
-        },
-        {
-            "name": "Rxseboy",
-            "preset": "rose",
-            "type": "artist"
-        },
-        {
-            "name": "glaive",
-            "preset": "gold",
-            "type": "artist"
-        }
+        
     ]
 }
