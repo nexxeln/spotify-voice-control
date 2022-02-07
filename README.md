@@ -30,7 +30,7 @@
 * [spotipy - Spotify api wrapper](https://github.com/plamere/spotipy)
 * [speech_recognition](https://github.com/Uberi/speech_recognition)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">^</a>)</p>
 
 ### Prerequisites
 - [Python 3.6+](https://www.python.org/downloads/)
@@ -48,7 +48,7 @@
 6. Authenticate by running `main.py`
 7. Run `main.py` to use
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">^</a>)</p>
 
 ### Usage
 
@@ -72,7 +72,7 @@
       - Now you can say `{preset}` to play a preset
 14. Say `quit` to quit the program
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">^</a>)</p>
 
 
 <!-- CONTRIBUTING -->
@@ -89,4 +89,4 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">^</a>)</p>
