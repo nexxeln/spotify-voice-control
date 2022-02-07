@@ -57,7 +57,7 @@
 3. Say `play {track name}` to play a track (say `play random` to play a random track from your saved tracks)
 4. Say `album {album name}` to play an album 
 5. Say `artist {artist name}` to play songs of an artist (say `artist random` to play a random artist from your followed artists)
-6. Say `playlist {playlist name}` to play a playlist
+6. Say `playlist {playlist name}` to play a playlist from Your Library
 7. Say `pause` to pause the music
 8. Say `resume` to resume the music
 9. Say `skip` to skip to the next track
