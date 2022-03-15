@@ -81,6 +81,8 @@ _Note: Sometimes the speech_recognition library hangs, in that case you have to 
 
 Make the whole thing in Rust to make it a whole lot faster.
 
+<p align="right">(<a href="#top">^</a>)</p>
+
 <!-- CONTRIBUTING -->
 
 ## Contributing
