@@ -37,6 +37,8 @@ _Demo video will be added soon_
 - [Python 3.6+](https://www.python.org/downloads/)
 - [Spotify Premium](https://www.spotify.com/premium/)
 
+<p align="right">(<a href="#top">^</a>)</p>
+
 ### Installation
 
 1. Make a free application at [https://developer.spotify.com](https://developer.spotify.com)
