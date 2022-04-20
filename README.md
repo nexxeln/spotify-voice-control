@@ -41,7 +41,7 @@ _Demo video will be added soon_
 
 ### Installation
 
-1. Make a free application at [https://developer.spotify.com](https://developer.spotify.com)
+1. Make a application at [https://developer.spotify.com](https://developer.spotify.com)
 2. Add a Redirect URI to the application and set is as `http://localhost:8888/callback`
 3. Clone this repository (`git clone https://github.com/nexxeln/spotify-voice-control`)
 4. Install all dependencies (`pip install -r requirements.txt`)
