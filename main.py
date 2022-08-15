@@ -3,7 +3,7 @@ import spotipy
 import os
 import dotenv
 import speech_recognition as sr
-import json
+import orjson
 import random
 from spotipy.oauth2 import SpotifyOAuth
 from rich import print
@@ -14,18 +14,18 @@ from methods import *
 dotenv.load_dotenv()
 
 # loading settings
-f = open("settings.json")
-settings = json.load(f)
+with open('settings.json') as f:
+    settings = orjson.loads(f.read())
 presets = settings["presets"]
 f.close()
 
 # create spotify object with all scopes
-scope = "ugc-image-upload, user-read-playback-state, user-modify-playback-state, user-follow-modify, user-read-private, user-follow-read, user-library-modify, user-library-read, streaming, user-read-playback-position, app-remote-control, user-read-email, user-read-currently-playing, user-read-recently-played, playlist-modify-private, playlist-read-collaborative, playlist-read-private, user-top-read, playlist-modify-public"
+scope = f"ugc-image-upload, user-read-playback-state, user-modify-playback-state, user-follow-modify, user-read-private, user-follow-read, user-library-modify, user-library-read, streaming, user-read-playback-position, app-remote-control, user-read-email, user-read-currently-playing, user-read-recently-played, playlist-modify-private, playlist-read-collaborative, playlist-read-private, user-top-read, playlist-modify-public"
 
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope, client_id=os.getenv("SPOTIFY_CLIENT_ID"), client_secret=os.getenv("SPOTIFY_CLIENT_SECRET"), redirect_uri="http://localhost:8888/callback"), requests_timeout=300)
 
 # everyone likes ASCII art so why not
-print('''[spring_green3]
+print(f'''[spring_green3]
 :'######::'########:::'#######::'########:'####:'########:'##:::'##:
 '##... ##: ##.... ##:'##.... ##:... ##..::. ##:: ##.....::. ##:'##::
  ##:::..:: ##:::: ##: ##:::: ##:::: ##::::: ##:: ##::::::::. ####:::
@@ -69,7 +69,7 @@ while True:
     
     # checking if the speech recognizer recognized a command
     if len(words) < 1:
-        print("[italic red]Could not understand.[/italic red]")
+        print(f"[italic red]Could not understand.[/italic red]")
         continue
 
     elif len(words) == 1:
@@ -108,15 +108,15 @@ while True:
 
         if words[0] == "skip":
             skip_track(spotify=sp)
-            print("[bold deep_sky_blue2]Skipped![/bold deep_sky_blue2]")
+            print(f"[bold deep_sky_blue2]Skipped![/bold deep_sky_blue2]")
         
         elif words[0] == "pause":
             pause_track(spotify=sp)
-            print("[bold deep_sky_blue2]Paused![/bold deep_sky_blue2]")
+            print(f"[bold deep_sky_blue2]Paused![/bold deep_sky_blue2]")
 
         elif words[0] == "resume":
             resume_track(spotify=sp)
-            print("[bold deep_sky_blue2]Resumed![/bold deep_sky_blue2]")
+            print(f"[bold deep_sky_blue2]Resumed![/bold deep_sky_blue2]")
 
         elif words[0] == "quit":
             pause_track(spotify=sp)
@@ -124,10 +124,10 @@ while True:
         
         elif words[0] == "repeat":
             repeat_track(spotify=sp)
-            print("[bold deep_sky_blue2]Track on repeat![/bold deep_sky_blue2]")
+            print(f"[bold deep_sky_blue2]Track on repeat![/bold deep_sky_blue2]")
 
         else:
-            print("[italic red]Could not understand.[/italic red]")
+            print(f"[italic red]Could not understand.[/italic red]")
             continue
     
     else:
