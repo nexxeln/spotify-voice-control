@@ -7,7 +7,35 @@ class InvalidSearchError(Exception):
     pass
 
 
-def get_album_uri(spotify: Spotify, name: str) -> str:
+async def exit_application() -> None:
+    """
+    exits the application
+    """
+    print("[bold deep_sky_blue2]Goodbye![/bold deep_sky_blue2]")
+    return exit()
+
+
+async def get_current_song(spotify: Spotify) -> str:
+    """
+    Returns the name of the current song.
+    """
+    if spotify.currently_playing() is None:
+        """ If there is no song playing, return nothing is playing. """
+        return "Nothing is playing"
+    song_name = spotify.currently_playing()['item']['name']
+    artist_name = spotify.currently_playing()['item']['artists'][0]['name']
+    return f"{song_name} - {artist_name}"
+
+
+async def play_previous_song(spotify: Spotify) -> Spotify:
+    """
+    returns the previous song
+    """
+    print(f"[bold deep_sky_blue2]Playing previous song![/bold deep_sky_blue2]")
+    return spotify.previous_track()
+
+
+async def get_album_uri(spotify: Spotify, name: str) -> str:
     """
     returns the uri of the album with the given name
     """
@@ -17,7 +45,7 @@ def get_album_uri(spotify: Spotify, name: str) -> str:
     return results["albums"]["items"][0]["uri"]
 
 
-def get_track_uri(spotify: Spotify, name: str):
+async def get_track_uri(spotify: Spotify, name: str) -> str:
     """
     returns the uri of the track with the given name
     """
@@ -27,7 +55,7 @@ def get_track_uri(spotify: Spotify, name: str):
     return results["tracks"]["items"][0]["uri"]
 
 
-def get_artist_uri(spotify: Spotify, name: str):
+async def get_artist_uri(spotify: Spotify, name: str) -> str:
     """
     returns the uri of the artist with the given name
     """
@@ -37,80 +65,97 @@ def get_artist_uri(spotify: Spotify, name: str):
     return results["artists"]["items"][0]["uri"]
 
 
-def play_album(spotify: Spotify, uri: str) -> Spotify:
+async def play_album(spotify: Spotify, uri: str) -> Spotify:
     """
     plays the album with the given uri
     """
     return spotify.start_playback(context_uri=uri)
 
 
-def play_track(spotify: Spotify, uri: str) -> Spotify:
+async def play_track(spotify: Spotify, uri: str) -> Spotify:
     """
     plays the track with the given uri
     """
     return spotify.start_playback(uris=[uri])
 
 
-def play_artist(spotify: Spotify, uri: str) -> Spotify:
+async def play_artist(spotify: Spotify, uri: str) -> Spotify:
     """
     plays the artist with the given uri
     """
     return spotify.start_playback(context_uri=uri)
 
 
-def play_playlist(spotify: Spotify, playlist_id: str) -> Spotify:
+async def play_playlist(spotify: Spotify, playlist_id: str) -> Spotify:
     """
     plays the playlist with the given id
     """
     return spotify.start_playback(context_uri=f"spotify:playlist:{playlist_id}")
 
 
-def skip_track(spotify: Spotify) -> Spotify:
+async def next_track(spotify: Spotify) -> Spotify:
     """
     skips the current track
     """
+    print(f"[bold deep_sky_blue2]Skipped![/bold deep_sky_blue2]")
     return spotify.next_track()
 
 
-def previous_track(spotify: Spotify) -> Spotify:
+async def pause_track(spotify: Spotify) -> Spotify:
     """
-    plays the previous track
+    Puases the current song playing.
     """
-    return spotify.previous_track()
+    try:
+        if spotify.current_user_playing_track()['is_playing'] is True:
+            """ If the song is playing pause it."""
+            print(f"[bold deep_sky_blue2]Paused![/bold deep_sky_blue2]")
+            return spotify.pause_playback()
+        else:
+            """ Otherwise, inform the user that no song is currently playing."""
+            print(f"[italic red]No song is currently playing.[/italic red]")
+    except Exception as pause_tracK_exception:
+        print(f"Error"+ str(pause_tracK_exception))
 
 
-def pause_track(spotify: Spotify) -> Spotify:
+async def resume_track(spotify: Spotify) -> Spotify:
     """
-    pauses the current track
+    Resumes the paused song.
     """
-    return spotify.pause_playback()
+    try:
+        if spotify.current_user_playing_track()['is_playing'] is False:
+            """ If the song is paused, resume it."""
+            print(f"[bold deep_sky_blue2]Resumed![/bold deep_sky_blue2]")
+            return spotify.start_playback()
+        else:
+            """ Otherwise, inform the user that song is currently playing."""
+            print(f"[italic red]Song is already playing.[/italic red]")
+    except Exception as resume_track_exception:
+        print(f"Error"+ str(resume_track_exception))
 
 
-def resume_track(spotify: Spotify) -> Spotify:
-    """
-    resumes the current track
-    """
-    return spotify.start_playback()
-
-
-def change_volume(spotify: Spotify, volume: int) -> Spotify:
+async def change_volume(spotify: Spotify, volume: int) -> Spotify:
     """
     changes the volume to the given value between 1 and 100
     """
     if volume < 0 or volume > 100:
-        raise ValueError("Volume must be between 0 and 100")
+        """ Removed the raise exception to allow the user to continue using the application. """
+        print(f"[italic red]Volume must be between 1 and 100.[/italic red]")
     else:
         return spotify.volume(volume)
 
 
-def repeat_track(spotify: Spotify) -> Spotify:
+async def repeat_track(spotify: Spotify) -> Spotify:
     """
     repeats the current track
     """
-    return spotify.repeat("track")
+    try:
+        print(f"[bold deep_sky_blue2]Track on repeat![/bold deep_sky_blue2]")
+        return spotify.repeat("track")
+    except Exception as repeat_track_exception:
+        print(f"Error"+ str(repeat_track_exception))
 
 
-def shuffle(spotify: Spotify, state: str):
+async def shuffle(spotify: Spotify, state: str) -> Spotify:
     """
     shuffles the playlist
     """
@@ -124,7 +169,7 @@ def shuffle(spotify: Spotify, state: str):
         raise ValueError("State must be either on or off")
 
 
-def get_user_followed_artists(spotify: Spotify) -> list:
+async def get_user_followed_artists(spotify: Spotify) -> list:
     """
     returns a list of the users followed artists
     """
@@ -142,7 +187,7 @@ def get_user_followed_artists(spotify: Spotify) -> list:
     return all_artists
 
 
-def get_user_saved_tracks(spotify: Spotify) -> list:
+async def get_user_saved_tracks(spotify: Spotify) -> list:
     """
     returns a list of the users saved tracks
     """
@@ -158,7 +203,7 @@ def get_user_saved_tracks(spotify: Spotify) -> list:
     return tracks
 
 
-def get_user_playlists(spotify: Spotify) -> tuple[list, list]:
+async def get_user_playlists(spotify: Spotify) -> tuple[list, list]:
     """
     returns a list of the users playlists
     """
