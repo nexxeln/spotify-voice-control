@@ -15,6 +15,6 @@ def initialize_voice(recognizer: sr.Recognizer) -> Union[str, sr.AudioData]:
         recognizer.adjust_for_ambient_noise(source)  # Adjust for ambient noise
         console.print("Calibration complete", style='bold green')
         console.print("[bold deep_sky_blue2]Ready![/bold deep_sky_blue2]")
-        audio = recognizer.listen(source,  10, 3)  # Set timeouut of listener
+        audio = recognizer.listen(source, 10, 3)  # Set timeouut of listener
 
     return command, audio
